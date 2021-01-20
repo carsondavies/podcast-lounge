@@ -3,7 +3,7 @@ import React from 'react'
 const Header = () => {
 
   return (
-    <div>Header.js</div>
+    <div>Welcome to Podcast Lounge</div>
   )
 }
 
