@@ -23,7 +23,30 @@ module.exports = {
     res.status(200).send(req.session.user)
   },
 
-  login: async (req, res) => { },
+  login: async (req, res) => {
+    const db = req.app.get('db')
+
+    const { username, password } = req.body
+
+    const [existingUser] = await db.check_user_login([username])
+
+    if (!existingUser) {
+      return res.status(404).send('User not found')
+    }
+
+    const isAuthenticated = bcrypt.compareSync(password, existingUser.hash)
+
+    if (!isAuthenticated) {
+      return res.status(403).send('Incorrect username or password')
+    }
+
+    delete existingUser.hash
+
+    req.session.user = existingUser
+
+    res.status(200).send(req.session.user)
+
+  },
 
   logout: (req, res) => { },
 
