@@ -1,0 +1,9 @@
+CREATE TABLE users (
+id SERIAL PRIMARY KEY,
+username VARCHAR(100),
+email VARCHAR(200),
+hash VARCHAR(200)
+);
+
+
+

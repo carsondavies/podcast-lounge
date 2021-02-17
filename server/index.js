@@ -1,8 +1,11 @@
 require('dotenv').config()
-const path = require('path')
+// const path = require('path')
 const express = require('express')
 const massive = require('massive')
-const session = require('session')
+const session = require('express-session')
+
+const authCtrl = require('./Controllers/authController')
+
 
 
 const app = express()
@@ -14,12 +17,17 @@ app.use(
   session({
     secret: SESSION_SECRET,
     resave: false,
-    saveUninitiated: true,
+    saveUninitialized: true,
     cookie: { maxAge: 1000 * 60 * 60 * 24 * 365 }
   })
 )
 
 //endpoints
+app.post('api/auth/register', authCtrl.register)
+app.post('api/auth/login', authCtrl.login)
+app.delete('api/auth/logout', authCtrl.logout)
+app.get('api/auth/getuser', authCtrl.getUser)
+
 
 massive({
   connectionString: CONNECTION_STRING,
