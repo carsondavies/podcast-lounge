@@ -23,10 +23,12 @@ app.use(
 )
 
 //endpoints
-app.post('api/auth/register', authCtrl.register)
-app.post('api/auth/login', authCtrl.login)
-app.delete('api/auth/logout', authCtrl.logout)
-app.get('api/auth/getuser', authCtrl.getUser)
+app.post('auth/register', authCtrl.register)
+app.post('auth/login', authCtrl.login)
+app.delete('auth/logout', authCtrl.logout)
+app.get('auth/getuser', authCtrl.getUser)
+
+app.get('auth/random', authCtrl.random)
 
 
 massive({

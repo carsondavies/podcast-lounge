@@ -60,6 +60,9 @@ module.exports = {
       res.status(404).send('No session found')
     }
   },
+  random: (req, res) => {
+    res.status(200).send('endpoint check compelete')
+  }
 
 
 }                                                          
