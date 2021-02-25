@@ -5,6 +5,7 @@ const massive = require('massive')
 const session = require('express-session')
 
 const authCtrl = require('./Controllers/authController')
+const loungeCtrl = require('./Controllers/loungeController')
 
 
 
@@ -28,7 +29,7 @@ app.post('/api/auth/login', authCtrl.login)
 app.delete('/api/auth/logout', authCtrl.logout)
 app.get('/api/auth/getuser', authCtrl.getUser)
 
-
+app.post('/api/createlounge', loungeCtrl.createLounge)
 
 massive({
   connectionString: CONNECTION_STRING,

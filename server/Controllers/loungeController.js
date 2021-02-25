@@ -17,6 +17,8 @@ module.exports = {
 
     const yt_ID = await YouTubeGetID(yt_url)
 
+    res.status(200).send(yt_ID)
+
   },
 
 }
