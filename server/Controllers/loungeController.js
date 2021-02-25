@@ -12,6 +12,11 @@ const YouTubeGetID = (url) => {
 }
 
 module.exports = {
-  createLounge: async (req, res) => { },
+  createLounge: async (req, res) => {
+    const { yt_url } = req.body
+
+    const yt_ID = await YouTubeGetID(yt_url)
+
+  },
 
 }
