@@ -10,6 +10,7 @@ const Header = () => {
 
   return (
     <div>
+      <p>WELCOME TO PODCAST LOUNGE</p>
       <input
         type='text'
         name='variable'
